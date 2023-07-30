@@ -135,7 +135,11 @@
                     <td style="text-align: center">Pekanbaru, {{ date('d-m-Y') }}</td>
                 </tr>
                 <tr>
-                    <td style="text-align: center"><img src="/images/logo.svg" alt="Tanda Tangan"></td>
+                    <td style="text-align: center;">
+                        {{-- tanda tangan --}}
+                        <br>
+                        <br>
+                    </td>
                 </tr>
                 <tr>
                     <td style="text-align: center">Pemilik W Florist Pekanbaru</td>
