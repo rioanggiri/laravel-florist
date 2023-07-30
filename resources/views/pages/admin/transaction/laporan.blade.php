@@ -194,9 +194,7 @@
                 </tr>
                 <tr>
                     <td style="text-align: center;">
-                        {{-- tanda tangan --}}
-                        <br>
-                        <br>
+                        <img src="/images/tandatangan.svg" alt="Tanda Tangan">
                     </td>
                 </tr>
                 <tr>

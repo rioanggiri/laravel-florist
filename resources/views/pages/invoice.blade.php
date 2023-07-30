@@ -132,17 +132,15 @@
             <p>Total Pembayaran: Rp. {{ number_format($item->transaction->total_price, 0, ',', '.') }}</p>
             <table style="float: right">
                 <tr>
-                    <td style="text-align: center">Pekanbaru, {{ date('d-m-Y') }}</td>
+                    <td style="text-align: center;">Pekanbaru, {{ date('d-m-Y') }}</td>
                 </tr>
                 <tr>
                     <td style="text-align: center;">
-                        {{-- tanda tangan --}}
-                        <br>
-                        <br>
+                        <img src="/images/tandatangan.svg" alt="Tanda Tangan">
                     </td>
                 </tr>
                 <tr>
-                    <td style="text-align: center">Pemilik W Florist Pekanbaru</td>
+                    <td style="text-align: center;">Pemilik W Florist Pekanbaru</td>
                 </tr>
             </table>
         </div>
