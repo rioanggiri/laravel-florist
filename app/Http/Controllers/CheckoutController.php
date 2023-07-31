@@ -12,7 +12,7 @@ use App\Models\TransactionDetail;
 use Carbon\Carbon;
 use Exception;
 use Illuminate\Support\Facades\Mail;
-use Midtrans\snap;
+use Midtrans\Snap;
 use Midtrans\Config;
 use Midtrans\Notification;
 
@@ -138,14 +138,6 @@ class CheckoutController extends Controller
 
         // Kirimkan respon sesuai dengan status pembayaran
         if ($transaction->status == 'SUCCESS') {
-            // Jika pembayaran berhasil
-            // Lakukan tindakan yang sesuai, misalnya mengirim email atau memperbarui status pesanan
-            // Ambil alamat email konsumen dari data transaksi
-            // $customerEmail = $transaction->user->email;
-
-            // Kirim email notifikasi ke alamat email konsumen
-            // Mail::to($customerEmail)->send(new OrderConfirmation($transaction));
-
             return response()->json([
                 'meta' => [
                     'code' => 200,

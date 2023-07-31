@@ -36,7 +36,6 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/cart/{id}', [CartController::class, 'delete'])->name('cart-delete');
     Route::post('/checkout', [CheckoutController::class, 'process'])->name('checkout');
     Route::get('/success', [CartController::class, 'success'])->name('success');
-    Route::get('/register/success', [RegisterController::class, 'success'])->name('register-success');
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('/dashboard/transactions', DashboardTransactionController::class)->only([
         'index', 'show'
@@ -72,3 +71,4 @@ Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
 
 // Authentication routes
 Auth::routes();
+Route::get('/register/success', [RegisterController::class, 'success'])->name('register-success');

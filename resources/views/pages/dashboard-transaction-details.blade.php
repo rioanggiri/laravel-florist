@@ -143,7 +143,10 @@
                                 @else
                                     <div class="row mt-3">
                                         <div class="col-12 text-right">
-                                            <a href="{{ url($transaction->payment_url) }}" target="_blank"
+                                            @php
+                                                $value = $transaction->payment_url;
+                                            @endphp
+                                            <a href="{{ url(e($value)) }}" target="_blank"
                                                 class="btn btn-store btn-lg mt-4"><i class="fa fa-money"></i>
                                                 Bayar Sekarang
                                             </a>
