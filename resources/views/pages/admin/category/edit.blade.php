@@ -43,6 +43,8 @@
                                             <div class="form-group">
                                                 <label>Foto</label>
                                                 <input type="file" name="photo" class="form-control">
+                                                <small class="form-text text-muted">Note : *File foto maksimal ukuran 1
+                                                    MB</small>
                                             </div>
                                         </div>
                                     </div>

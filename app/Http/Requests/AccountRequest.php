@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class AccountRequest extends FormRequest
 {
@@ -22,11 +23,11 @@ class AccountRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'photo' => 'required|image',
+            'photo' => 'sometimes|image|mimes:jpeg,png,jpg|max:1024',
             'name' => 'required|max:150',
-            'email' => 'required|email|unique:users,email,' . $this->user,
-            'address' => 'required',
-            'phone' => 'required',
+            'email' => 'sometimes|email|unique:users,email,' . Auth::id(),
+            'address' => 'sometimes',
+            'phone' => 'sometimes',
         ];
     }
 }

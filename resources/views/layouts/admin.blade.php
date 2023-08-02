@@ -184,13 +184,13 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="{{ route('dashboard') }}">
+                                <a class="dropdown-item" href="{{ route('admin-dashboard') }}">
                                     <i
                                         class="fas fa-fw fa-tachometer-alt fa-sm
                                     mr-2 text-gray-400"></i>
                                     Dashboard
                                 </a>
-                                <a class="dropdown-item" href="{{ route('dashboard-account') }}">
+                                <a class="dropdown-item" href="{{ route('admin-account') }}">
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Settings
                                 </a>

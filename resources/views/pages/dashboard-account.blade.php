@@ -15,25 +15,32 @@
                     enctype="multipart/form-data">
                     @csrf
                     <div class="row">
-                        <div class="col-4">
+                        {{-- Jika Terjadi Error --}}
+                        @if ($errors->any())
+                            <div class="col-12">
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            </div>
+                        @endif
+                        <div class="col-md-4">
                             <div class="card">
                                 <div class="card-body text-center">
-                                    @if (Auth::user()->photo)
-                                        <img src="{{ Storage::url($user->photo) }}" alt="foto profil" class="w-50 mb-3">
-                                    @else
-                                        <img alt="foto profil"
-                                            src="https://ui-avatars.com/api/?name={{ Auth::user()->roles == 'ADMIN' ? 'Admin' : 'User' }}"
-                                            class="img-fluid mb-3" width="200">
-                                    @endif
-                                    {{-- <img src="{{ Storage::url($user->photo) }}" alt="foto profil" class="w-50 mb-3"> --}}
+                                    <img src="{{ Auth::user()->photo ? Storage::url($user->photo) : 'https://ui-avatars.com/api/?name=' . (Auth::user()->roles == 'ADMIN' ? 'Admin' : 'User') }}"
+                                        alt="foto profil" class="w-50 mb-3">
                                     <label for="photo" class="btn btn-store px-5">
                                         Update foto profil
                                     </label>
                                     <input type="file" id="photo" name="photo" style="display: none;">
+                                    <small class="form-text text-muted">Note : *File foto maksimal ukuran 1 MB</small>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-8">
+                        <div class="col-md-8">
                             <div class="card">
                                 <div class="card-body">
                                     <div class="row">
@@ -77,6 +84,7 @@
                             </div>
                         </div>
                     </div>
+
                 </form>
             </div>
         </div>

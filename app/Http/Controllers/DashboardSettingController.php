@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AccountRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -20,9 +21,9 @@ class DashboardSettingController extends Controller
         ]);
     }
 
-    public function update(Request $request, $redirect)
+    public function update(AccountRequest $request, $redirect)
     {
-        $data = $request->all();
+        $data = $request->validated();
 
         $user = Auth::user();
         $user->update($data);

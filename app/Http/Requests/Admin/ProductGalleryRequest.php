@@ -23,7 +23,7 @@ class ProductGalleryRequest extends FormRequest
     {
         return [
             'products_id' => 'required|exists:products,id',
-            'photos' => 'required|image',
+            'photos' => 'required|image|mimes:jpeg,png,jpg|max:1024',
         ];
     }
 }

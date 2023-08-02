@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AccountRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -21,9 +22,9 @@ class AccountController extends Controller
         ]);
     }
 
-    public function update(Request $request, $redirect)
+    public function update(AccountRequest $request, $redirect)
     {
-        $data = $request->all();
+        $data = $request->validated();
 
         $user = Auth::user();
         $user->update($data);
