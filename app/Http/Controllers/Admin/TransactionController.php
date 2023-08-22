@@ -55,10 +55,15 @@ class TransactionController extends Controller
                         return 'DALAM PENGIRIMAN';
                     } elseif ($item->status == 'FINISHED') {
                         return 'SELESAI';
+                    } elseif ($item->status == 'CANCELLED') {
+                        return 'BATAL';
                     }
                 })
                 ->editColumn('created_at', function ($item) {
                     return date('d-m-Y', strtotime($item->created_at));
+                })
+                ->editColumn('info', function ($item) {
+                    return $item->info ?: '-';
                 })
                 ->rawColumns(['action', 'status'])
                 ->make();
@@ -103,6 +108,9 @@ class TransactionController extends Controller
                 ->editColumn('product.price', function ($item) {
                     return 'Rp. ' . number_format($item->product->price, 0, ',', '.');
                 })
+                ->editColumn('info', function ($item) {
+                    return $item->info ?: '-';
+                })
                 ->rawColumns(['photos'])
                 ->make(true);
         }
@@ -137,6 +145,11 @@ class TransactionController extends Controller
     public function update(Request $request, string $id)
     {
         $data = $request->all();
+
+        // Jika status bukan CANCELLED, kosongkan info
+        if ($data['status'] !== 'CANCELLED') {
+            $data['info'] = null;
+        }
 
         $item = Transaction::findOrFail($id);
 

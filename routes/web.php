@@ -21,6 +21,7 @@ use App\Http\Controllers\Admin\ReportController;
 use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\TransactionController;
 use App\Http\Controllers\DashboardReviewController;
+use App\Http\Controllers\LoginController;
 
 // Public routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -29,6 +30,16 @@ Route::get('/categories/{id}', [CategoryController::class, 'detail'])->name('cat
 Route::get('/details/{id}', [DetailController::class, 'index'])->name('detail');
 Route::post('/details/{id}', [DetailController::class, 'add'])->name('detail-add');
 Route::get('/guides', [HomeController::class, 'guides'])->name('guides');
+
+// Tambahkan route untuk proses reset password
+// Route::get('/forgot-password', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
+// Route::post('/forgot-password', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
+// Route::get('/reset-password/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset');
+// Route::post('/reset-password', [ResetPasswordController::class, 'reset'])->name('password.update');
+
+//google socialite login
+Route::get('sign-in-google', [LoginController::class, 'google'])->name('user.login.google');
+Route::get('auth/google/callback', [LoginController::class, 'handleGoogleCallback'])->name('user.google.callback');
 
 // Authenticated user routes
 Route::middleware(['auth'])->group(function () {

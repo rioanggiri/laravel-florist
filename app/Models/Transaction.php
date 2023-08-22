@@ -12,6 +12,7 @@ class Transaction extends Model
 
     protected $fillable = [
         'code', 'users_id', 'event_date', 'name', 'address', 'detail_order', 'phone', 'payment_url', 'total_price', 'status',
+        'info',
     ];
 
     protected $hidden = [];

@@ -25,13 +25,17 @@
                                         <i class="fa fa-print"></i> Cetak Semua Transaksi
                                     </a>
                                     <div class="btn-group mb-2">
-                                        <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <button type="button" class="btn btn-warning dropdown-toggle"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <i class="fa fa-print"></i> Cetak Transaksi
                                         </button>
                                         <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#cetakHarianModal">Cetak Laporan Harian</a>
-                                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#cetakMingguanModal">Cetak Laporan Mingguan</a>
-                                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#cetakBulananModal">Cetak Laporan Bulanan</a>
+                                            <a class="dropdown-item" href="#" data-toggle="modal"
+                                                data-target="#cetakHarianModal">Cetak Laporan Harian</a>
+                                            <a class="dropdown-item" href="#" data-toggle="modal"
+                                                data-target="#cetakMingguanModal">Cetak Laporan Mingguan</a>
+                                            <a class="dropdown-item" href="#" data-toggle="modal"
+                                                data-target="#cetakBulananModal">Cetak Laporan Bulanan</a>
                                         </div>
                                     </div>
                                 </div>
@@ -45,6 +49,7 @@
                                                 <th>Total Harga</th>
                                                 <th>Status</th>
                                                 <th>Tanggal Pemesanan</th>
+                                                <th>Keterangan</th>
                                                 <th>Aksi</th>
                                             </tr>
                                         </thead>
@@ -194,6 +199,10 @@
             }, {
                 data: 'created_at',
                 name: 'created_at'
+            }, {
+
+                data: 'info',
+                name: 'info'
             }, {
                 data: 'action',
                 name: 'action',

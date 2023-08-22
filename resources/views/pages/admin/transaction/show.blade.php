@@ -96,8 +96,15 @@
                                                         <span class="text-info">DALAM PENGIRIMAN</span>
                                                     @elseif ($transaction->status === 'FINISHED')
                                                         <span class="text-primary">SELESAI</span>
+                                                    @elseif ($transaction->status === 'CANCELLED')
+                                                        <span class="text-danger">BATAL</span>
                                                     @endif
                                                 </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="product-title">Keterangan</td>
+                                                <td>:</td>
+                                                <td>{{ $transaction->info ?? '-' }}</td>
                                             </tr>
                                             <tr>
                                                 <td class="product-title" colspan="3">Ucapan Di Papan Bunga :</td>
@@ -148,52 +155,7 @@
         </div>
     </div>
 @endsection
-<!-- Modal -->
-{{-- @foreach ($detail as $details)
-    <div class="modal fade" id="reviewModal-{{ $details->product->id }}" tabindex="-1" role="dialog"
-        aria-labelledby="reviewModalLabel-{{ $details->product->id }}" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="reviewModalLabel-{{ $details->product->id }}">
-                        Beri Ulasan Produk <br> {{ $details->product->name }} </h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <!-- Form untuk memberikan ulasan -->
-                    <form action="{{ route('reviews.store') }}" method="POST">
-                        @csrf
-                        <input type="hidden" name="transaction_id" value="{{ $details->transaction->id }}">
-                        <input type="hidden" name="product_id" value="{{ $details->product->id }}">
-                        <div class="form-group">
-                            <label for="rating">Rating:</label>
-                            <div class="rating">
-                                <input type="radio" id="star5" name="rating" value="5" required>
-                                <label for="star5"></label>
-                                <input type="radio" id="star4" name="rating" value="4" required>
-                                <label for="star4"></label>
-                                <input type="radio" id="star3" name="rating" value="3" required>
-                                <label for="star3"></label>
-                                <input type="radio" id="star2" name="rating" value="2" required>
-                                <label for="star2"></label>
-                                <input type="radio" id="star1" name="rating" value="1" required>
-                                <label for="star1"></label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="comment">Komentar:</label>
-                            <textarea class="form-control" name="comment" rows="3"></textarea>
-                        </div>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                        <button type="submit" class="btn btn-store">Kirim Ulasan</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-@endforeach --}}
+
 @push('addon-script')
     <script>
         var datatable = $('#crudTable').DataTable({

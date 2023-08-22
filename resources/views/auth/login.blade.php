@@ -1,8 +1,25 @@
 @extends('layouts.auth')
 
-@section('title')
-    Sign In
-@endsection
+@section('title', 'Sign In')
+
+@push('addon-style')
+    <style>
+        .google-signin {
+            position: relative;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .google-logo {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 24px;
+            /* Sesuaikan dengan ukuran logo yang diinginkan */
+        }
+    </style>
+@endpush
 
 @section('content')
     <div class="page-content page-auth">
@@ -10,11 +27,10 @@
             <div class="container">
                 <div class="row align-items-center row-login">
                     <div class="col-lg-6 text-center">
-                        <img src="/images/login.png" alt="palceholder login" class="w-50 mb-4 mb-lg-none">
+                        <img src="/images/login.png" alt="placeholder login" class="w-50 mb-4 mb-lg-none">
                     </div>
-                    <div class="col-log-5">
-                        <h2>Pesan papan bunga sekarang, <br>
-                            menjadi lebih mudah</h2>
+                    <div class="col-lg-5">
+                        <h2 class="text-center">Pesan papan bunga sekarang<br>menjadi lebih mudah</h2>
                         <form method="POST" action="{{ route('login') }}" class="mt-3">
                             @csrf
                             <div class="form-group">
@@ -39,11 +55,21 @@
                                     </span>
                                 @enderror
                             </div>
-                            <button type="submit" class="btn btn-store btn-block w-75 mt-4">
+                            <a href="{{ route('password.request') }}" class="btn btn-link">
+                                Lupa Password?
+                            </a>
+                            <button type="submit" class="btn btn-store btn-block w-75">
                                 Sign In Sekarang
                             </button>
                             <a href="{{ route('register') }}" class="btn btn-signup btn-block w-75 mt-2">
                                 Sign Up
+                            </a>
+                            <button class="btn btn-google w-75" style="text-align: center">Atau</button>
+                            <a href="{{ route('user.login.google') }}" class="btn btn-light btn-block w-75 google-signin">
+                                Sign In dengan Google
+                                <img src="https://www.transparentpng.com/thumb/google-logo/colorful-google-logo-transparent-clipart-download-u3DWLj.png"
+                                    alt="colorful google logo transparent clipart download @transparentpng.com"
+                                    class="google-logo">
                             </a>
                         </form>
                     </div>

@@ -96,8 +96,15 @@
                                                         <span class="text-info">DALAM PENGIRIMAN</span>
                                                     @elseif ($transaction->status === 'FINISHED')
                                                         <span class="text-primary">SELESAI</span>
+                                                    @elseif ($transaction->status === 'CANCELLED')
+                                                        <span class="text-danger">BATAL</span>
                                                     @endif
                                                 </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="product-title">Keterangan</td>
+                                                <td>:</td>
+                                                <td>{{ $transaction->info ?? '-' }}</td>
                                             </tr>
                                             <tr>
                                                 <td class="product-title" colspan="3">Ucapan Di Papan Bunga :</td>

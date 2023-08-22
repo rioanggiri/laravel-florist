@@ -47,6 +47,8 @@
                                                         <span class="text-info">DALAM PENGIRIMAN</span>
                                                     @elseif ($transaction->status === 'FINISHED')
                                                         <span class="text-primary">SELESAI</span>
+                                                    @elseif ($transaction->status === 'CANCELLED')
+                                                        <span class="text-danger">BATAL</span>
                                                     @endif
                                                 </div>
                                                 <div class="col-md-1 d-none d-md-block">

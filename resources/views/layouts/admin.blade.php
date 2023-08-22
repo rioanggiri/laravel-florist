@@ -184,6 +184,10 @@
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="{{ route('home') }}">
+                                    <i class="fas fa-home fa-sm mr-2 text-gray-400"></i>
+                                    Beranda
+                                </a>
                                 <a class="dropdown-item" href="{{ route('admin-dashboard') }}">
                                     <i
                                         class="fas fa-fw fa-tachometer-alt fa-sm
